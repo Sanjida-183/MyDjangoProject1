@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>All Feedback</title>
+<style>
+body { font-family: sans-serif; padding: 20px; }
+.entry { border-bottom: 1px solid #ccc; padding: 10px 0; }
+.name { font-weight: bold; }
+.date { color: #888; font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<h2>All Submitted Feedback</h2>
+{% for feedback in feedbacks %}
+<div class="entry">
+<div class="name">{{ feedback.name }}</div>
+<div class="date">{{ feedback.submitted_at|date:"M d, Y
+
+H:i" }}</div>
+
+<p>{{ feedback.comment }}</p>
+</div>
+{% empty %}
+
+<p>No feedback submitted yet.</p>
+{% endfor %}
+<br>
+<a href="{% url 'feedback_form' %}">Submit More Feedback</a>
+</body>
+</html>

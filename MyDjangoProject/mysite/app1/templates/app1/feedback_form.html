@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Submit Feedback</title>
+<style>
+body { font-family: sans-serif; padding: 20px; }
+form { max-width: 400px; margin: auto; }
+label, input, textarea { display: block; width: 100%; margin-bottom:
+10px; }
+button { padding: 10px 20px; background: #333; color: #fff; border:
+none; }
+</style>
+</head>
+<body>
+<h2>Submit Your Feedback</h2>
+<form method="POST">
+{% csrf_token %}
+{{ form.as_p }}
+<button type="submit">Submit</button>
+</form>
+<br>
+<a href="{% url 'feedback_list' %}">View All Feedback</a>
+</body>
+</html>
